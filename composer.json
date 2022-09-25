@@ -2,7 +2,7 @@
     "name": "techsarathy/wpsettings",
     "description": "Wordpress Settings Page",
     "type": "library",
-    "license": "GPL",
+    "license": "GPL-3.0-or-later",
     "authors": [
         {
             "name": "Rahul Taiwala",
