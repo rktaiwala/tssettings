@@ -6,5 +6,5 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'TS\\Settings\\' => array($baseDir . '/src'),
+    'Techsarathy\\Settings\\' => array($baseDir . '/src'),
 );

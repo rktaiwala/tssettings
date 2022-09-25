@@ -9,12 +9,12 @@ class ComposerStaticInitc199c964f6de2914c5f76a069acea77a
     public static $prefixLengthsPsr4 = array (
         'T' => 
         array (
-            'TS\\Settings\\' => 12,
+            'Techsarathy\\Settings\\' => 21,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
-        'TS\\Settings\\' => 
+        'Techsarathy\\Settings\\' => 
         array (
             0 => __DIR__ . '/../..' . '/src',
         ),
@@ -22,7 +22,7 @@ class ComposerStaticInitc199c964f6de2914c5f76a069acea77a
 
     public static $classMap = array (
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
-        'TS\\Settings\\Base\\SettingsBase' => __DIR__ . '/../..' . '/src/Base/SettingsBase.php',
+        'Techsarathy\\Settings\\Base\\SettingsBase' => __DIR__ . '/../..' . '/src/Base/SettingsBase.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

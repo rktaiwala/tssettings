@@ -7,5 +7,5 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
-    'TS\\Settings\\Base\\SettingsBase' => $baseDir . '/src/Base/SettingsBase.php',
+    'Techsarathy\\Settings\\Base\\SettingsBase' => $baseDir . '/src/Base/SettingsBase.php',
 );
