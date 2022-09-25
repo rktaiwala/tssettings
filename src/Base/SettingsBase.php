@@ -67,7 +67,7 @@ abstract class SettingsBase {
         return get_option($key);
     }
     public static function get_fields(){
-        return apply_filters('ts_settings_get_fields',self::$allFields,$this->id_base);
+        return apply_filters('ts_settings_get_fields',self::$allFields);
     }
 
     
