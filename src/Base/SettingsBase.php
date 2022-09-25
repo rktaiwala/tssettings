@@ -1,5 +1,5 @@
 <?php
-namespace TS\Settings\Base;
+namespace TechSarathy\Settings\Base;
 abstract class SettingsBase {
     protected $id_base;
     protected $page_title='';//settings page tite
