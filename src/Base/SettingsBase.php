@@ -42,7 +42,7 @@ abstract class SettingsBase {
         add_action( 'admin_enqueue_scripts', array($this,'ts_include_js') );
         
     }
-    private function set_fields(){}
+    abstract public function set_fields();
     private function initialize_options(){
         foreach(self::$allFields as $key=>$field){
             if($field['type']=='repeater'){
