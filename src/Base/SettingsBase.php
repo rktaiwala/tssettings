@@ -34,6 +34,7 @@ abstract class SettingsBase {
         $this->slug            = $slug;
         $this->page_title      = __( $this->page_title, 'ts-settings' );
         $this->menu_title      = __( $this->menu_title, 'ts-settings' );
+        $this->set_fields();
         add_action( 'admin_menu', array( $this, 'ts_create_settings' ) );
         add_action( 'admin_init', array( $this, 'ts_setup_sections' ) );
         add_action( 'admin_init', array( $this, 'ts_setup_fields' ) );
@@ -41,7 +42,7 @@ abstract class SettingsBase {
         add_action( 'admin_enqueue_scripts', array($this,'ts_include_js') );
         
     }
-
+    private function set_fields(){}
     private function initialize_options(){
         foreach(self::$allFields as $key=>$field){
             if($field['type']=='repeater'){
