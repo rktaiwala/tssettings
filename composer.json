@@ -1,0 +1,17 @@
+{
+    "name": "ts/wpsettings",
+    "description": "Wordpress Settings Page",
+    "type": "library",
+    "license": "GPL",
+    "authors": [
+        {
+            "name": "Rahul Taiwala",
+            "email": "rktaiwala@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "autoload": {
+        "psr-4": {"TS\\Settings\\": "src/"}
+    },
+    "require": {}
+}
