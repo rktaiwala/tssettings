@@ -32,6 +32,7 @@ abstract class SettingsBase {
             $this->setting_field = 'setting_option_'.$id_base;
         }
         $this->slug            = $slug;
+        $this->setting_section = 'section_'.$id_base;
         $this->page_title      = __( $this->page_title, 'ts-settings' );
         $this->menu_title      = __( $this->menu_title, 'ts-settings' );
         $this->set_fields();
@@ -40,6 +41,12 @@ abstract class SettingsBase {
         add_action( 'admin_init', array( $this, 'ts_setup_fields' ) );
         add_action( 'admin_head', array( $this, 'my_custom_admin_head' ));
         add_action( 'admin_enqueue_scripts', array($this,'ts_include_js') );
+        // Must run after wp's `option_update_filter()`, so priority > 10
+        //add_action( 'whitelist_options', array( $this, 'whitelist_custom_options_page' ),11 );
+        //var_dump(self::$allFields);
+        
+    }
+    private function whitelist_custom_options_page($whitelist_options){
         
     }
     abstract public function set_fields();
@@ -100,6 +107,7 @@ abstract class SettingsBase {
           add_options_page($this->page_title, $this->menu_title, $this->capability, $this->slug, $callback);
     }
     public function ts_settings_content() {
+        
         $this->initialize_options();
     ?>
   
@@ -108,8 +116,8 @@ abstract class SettingsBase {
               <?php settings_errors(); ?>
               <form method="POST" action="options.php">
                   <?php
-                      settings_fields( $this->setting_field );
-                      do_settings_sections( $this->setting_field );
+                      settings_fields( $this->slug );
+                      do_settings_sections( $this->slug );
                       submit_button();
                   ?>
               </form>
@@ -159,12 +167,14 @@ abstract class SettingsBase {
     }
 
     public function ts_setup_fields() {
+        $this->initialize_options();
         $fields = self::get_fields();//=$fields;
+        
         foreach( $fields as $field ){
             add_settings_field( $field['id'], $field['label'], array( $this, 'ts_field_callback' ), $this->slug, $field['section'], $field );
-            register_setting( $this->setting_field, $field['id'] );
+            register_setting( $this->slug, $field['id'] );
         }
-        $this->initialize_options();
+        
     }
 
     public function radio_field($field){
@@ -207,7 +217,7 @@ abstract class SettingsBase {
         printf('</select>');
     }
     public function ts_field_callback( $field ) {
-
+        
         switch ( $field['type'] ) {
         case 'radio':$this->radio_field($field);
         break;
